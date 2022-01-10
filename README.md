@@ -30,5 +30,12 @@
 <li>Run <code> php artisan key:generate </code></li>
 </ul>
 
+### Admin Panel
+<ul>
+<li>Url: <code>/admin</code></li>
+<li>Username: <code>admin@gmail.com</code></li>
+<li>Password: <code>123</code></li>
+</ul> 
+
 <h5 align="center">__qnp__</h5>
 <h2 align="center">Good luck!</h3>

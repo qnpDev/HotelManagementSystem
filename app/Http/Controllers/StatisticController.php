@@ -207,11 +207,11 @@ class StatisticController extends Controller
 
         $year = Carbon::now()->year;
         if ($month == null) 
-            if (Carbon::now()->month + 1 > 12){
+            if (Carbon::now()->month + 1 > 11){
                 $month = 1;
                 $year = Carbon::now()->year + 1;
             }else
-                $month = Carbon::now()->month;
+                $month = Carbon::now()->month + 1;
 
         $data = DB::table('datphong')
             ->whereMonth('ngaydat', $month)

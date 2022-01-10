@@ -77,7 +77,7 @@
         //         document.getElementById("selectbox").selectedIndex = 4
         // }
         var now = new Date();
-        if (now.getMonth() + 1 === 12){
+        if (now.getMonth() + 1 > 11){
             var nextmonth = 1
             urlyear += 1
         }else
