@@ -65,19 +65,16 @@
 
                                     @php
 
-                                    $ngaydat = Carbon\Carbon::parse($hoadon->phieuthue->ngaydat)->format('d');
-                                        $day = abs($mytime->day - $ngaydat);
-                                        $giaphong=0;
-                                        if($day == 0){
-                                             $giaphong += ($hoadon->phieuthue->phong->loaiphong->giatien * 1);
-                                              $day = 1;
-                                        }else{
-                                            $giaphong += ($hoadon->phieuthue->phong->loaiphong->giatien * $day);
-
-                                        }
+                                        $oldDay = Carbon\Carbon::parse($hoadon->phieuthue->ngaydat)->diffInDays(Carbon\Carbon::parse($hoadon->phieuthue->ngaytra));
+                                        $oldDay += 1;
 
                                         $day = Carbon\Carbon::parse($hoadon->phieuthue->ngaydat)->diffInDays(Carbon\Carbon::parse($hoadon->create_at));
                                         $day += 1;
+
+                                        $hour = Carbon\Carbon::parse($mytime)->hour;
+                                        if($hour < 12 && $day > $oldDay){
+                                            $day -= 0.5;
+                                        }
                                         
                                         $giaphong = ($hoadon->phieuthue->phong->loaiphong->giatien * $day);
 

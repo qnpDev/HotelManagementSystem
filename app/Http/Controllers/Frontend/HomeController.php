@@ -234,6 +234,7 @@ class HomeController extends Controller
                         'phong_id' => $request->input('maphong'),
                         'payment' => $request->input('payment'),
                         'magiaodich' => $request->input('magiaodich'),
+                        'sotien' => $request->input('tongtien'),
                         'ngaydat' => $request->input('ngaydat'),
                         'ngaytra' =>$request->input('ngaytra')
                     ]);

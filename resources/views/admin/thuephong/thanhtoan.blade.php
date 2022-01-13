@@ -64,17 +64,20 @@
                                     </div>
 
                                     @php
-
                                         
                                         $oldDay = Carbon\Carbon::parse($checkin->ngaydat)->diffInDays(Carbon\Carbon::parse($checkin->ngaytra));
                                         $oldDay += 1;
 
-
-
-                                        $day = Carbon\Carbon::parse($checkin->ngaydat)->diffInDays(Carbon\Carbon::now());
+                                        $day = Carbon\Carbon::parse($checkin->ngaydat)->diffInDays(Carbon\Carbon::now('+7'));
                                         $day += 1;
-                                        
+
                                         $dathanhtoan = $checkin->phong->loaiphong->giatien * $oldDay;
+                                        
+                                        $hour = Carbon\Carbon::now('+7')->hour;
+                                        if($hour < 12 && $day > $oldDay){
+                                            $day -= 0.5;
+                                        }
+
                                         $giaphong = ($checkin->phong->loaiphong->giatien * $day);
 
                                     @endphp
@@ -173,7 +176,7 @@
                                     <input type="hidden" name="mathuephong" value="{{$checkin->id}}">
 
                                     <input type="hidden" name="maphong" value="{{$checkin->phong_id}}">
-                                    <input type="hidden" name="tongtien" value="{{$maintotal + $totaldv}}">
+                                    <input type="hidden" name="tongtien" value="{{$giaphong + $totaldv}}">
                                     <input type="hidden" name="tiendichvu" value="{{$totaldv}}">
                                     <input type="hidden" name="tienphong" value="{{$giaphong}}">
                                     <button type="submit" class="btn btn-primary btn-sm" >Thanh Toán</button>

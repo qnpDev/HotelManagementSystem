@@ -142,6 +142,7 @@
                                 <input type="hidden" name="ngaydat" value={{Carbon\Carbon::parse($ngayden)->format('Y/m/d')}}>
                                 <input type="hidden" name="ngaytra" value={{Carbon\Carbon::parse($ngaytra)->format('Y/m/d')}}>
                                 <input type="hidden" name="maphong" value={{$thongtin->id}}>
+                                <input type="hidden" name="tongtien" value={{$thongtin->loaiphong->giatien * $day}}>
                                 @if (Auth::guard('customer')->check())
                                     <input type="hidden" name="khachhang_id" value={{Auth::guard('customer')->user()->id}}>
                                 @endif

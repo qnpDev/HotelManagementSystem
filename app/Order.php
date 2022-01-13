@@ -3,14 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-//chưa khai báo Model :)))
 use App\Orderdetail;
 use App\Customer;
 
 class Order extends Model
 {
     protected $table='datphong';
-    protected $fillable =['id','khachhang_id','phong_id','payment','magiaodich','ngaydat','ngaytra','created_at'];
+    protected $fillable =['id','khachhang_id','phong_id','payment','magiaodich','sotien','ngaydat','ngaytra','created_at'];
 
     public function phong() {
         return $this->belongsTo('App\Room', 'phong_id','id');
