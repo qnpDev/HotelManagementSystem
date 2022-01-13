@@ -45,7 +45,8 @@ class InvoiceController extends Controller
 
             })
             ->editColumn('tongtien',function (Bill $hoadon){
-                return get_currency_vn($hoadon->tongtien);
+                //return get_currency_vn($hoadon->tongtien);
+                return get_currency_vn($hoadon->tiendichvu + $hoadon->tienphong);
             })
             ->editColumn('created_at',function (Bill $hoadon){
                 return $hoadon->created_at ? with(new Carbon($hoadon->created_at))->format('H:i:s d/m/Y') : '';
